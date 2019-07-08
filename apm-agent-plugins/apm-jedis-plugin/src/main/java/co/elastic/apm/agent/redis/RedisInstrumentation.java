@@ -80,12 +80,12 @@ public class RedisInstrumentation extends ElasticApmInstrumentation {
     @Override
     public ElementMatcher<? super TypeDescription> getTypeMatcher() {
         return nameStartsWith("redis.clients.jedis.BinaryJedis")
-            .or(ElementMatchers.nameStartsWith("redis.clients.jedis.Jedis"));
+            .or(nameStartsWith("redis.clients.jedis.Jedis"));
     }
 
     @Override
     public ElementMatcher<? super MethodDescription> getMethodMatcher() {
-        return any().and(not(isConstructor())).and(isPublic());
+        return isOverriddenFrom(nameEndsWith("Commands")).and(not(named("getDB")));
     }
 
     @Override
