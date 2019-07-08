@@ -271,10 +271,14 @@
             <artifactId>apm-rabbitmq-plugin</artifactId>
             <version>${project.version}</version>
         </dependency>
-
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>apm-jedis-plugin</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>apm-mongodb-plugin</artifactId>
             <version>${project.version}</version>
         </dependency>
 
