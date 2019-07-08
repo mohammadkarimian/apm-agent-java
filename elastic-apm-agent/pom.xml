@@ -266,6 +266,11 @@
             <artifactId>apm-scheduled-annotation-plugin</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>apm-rabbitmq-plugin</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>${project.groupId}</groupId>
