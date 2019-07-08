@@ -62,7 +62,6 @@ public class RabbitmqPublishInstrumentation extends ElasticApmInstrumentation {
         if (span != null) {
             span.activate();
         }
-
     }
 
     @Advice.OnMethodExit(suppress = Throwable.class, onThrowable = Throwable.class)
@@ -84,10 +83,7 @@ public class RabbitmqPublishInstrumentation extends ElasticApmInstrumentation {
 
     @Override
     public ElementMatcher<? super MethodDescription> getMethodMatcher() {
-        return any()
-            .and(not(isConstructor()))
-            .and(isPublic())
-            .and(not(isAnnotatedWith(Deprecated.class)));
+        return isOverriddenFrom(nameContains("Channel"));
     }
 
     @Override
